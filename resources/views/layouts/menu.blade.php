@@ -5,3 +5,15 @@
         <p>Home</p>
     </a>
 </li>
+<li class="nav-item">
+    <a href="{{ route('posts.create') }}" class="nav-link {{ Request::is('posts/create') ? 'active' : '' }}">
+        <i class="nav-icon fas fa-plus"></i>
+        <p>Create post</p>
+    </a>
+</li>
+<li class="nav-item">
+    <a href="{{ route('posts.index') }}" class="nav-link {{ Request::is('posts') ? 'active' : '' }}">
+        <i class="nav-icon fas fa-image"></i>
+        <p>Posts</p>
+    </a>
+</li>
