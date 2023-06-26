@@ -2,28 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Post;
-use Illuminate\Http\RedirectResponse;
+use App\Models\Comment;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
-use Illuminate\View\View;
 
-class PostController extends Controller
+class CommentController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-    /**
+   /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        $posts = Post::latest()->paginate(5);
+        $comments = Comment::latest()->paginate(5);
         
-        return view('posts.index',compact('posts'))
+        return view('comments.index',compact('comments'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
@@ -34,7 +27,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('posts.create');
+        return view('comments.create');
     }
 
     /**
@@ -46,14 +39,14 @@ class PostController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title' => 'required',
-            'description' => 'required',
+            
+            'comment' => 'required',
         ]);
     
-        Post::create($request->all());
+        Comment::create($request->all());
      
-        return redirect()->route('posts.index')
-                        ->with('success','Post created successfully.');
+        return redirect()->route('comments.index')
+                        ->with('success','Comment created successfully.');
     }
 
     /**
@@ -62,9 +55,9 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post)
+    public function show(Comment $comment)
     {
-        return view('posts.show',compact('post'));
+        return view('comments.show',compact('comment'));
     }
 
     /**
@@ -73,9 +66,9 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Post $post)
+    public function edit(Comment $comment)
     {
-        return view('posts.edit',compact('post'));
+        return view('comments.edit',compact('comment'));
     }
 
     /**
@@ -85,17 +78,16 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $post)
+    public function update(Request $request, Comment $comment)
     {
         $request->validate([
-            'title' => 'required',
-            'description' => 'required',
+            'comment' => 'required',
         ]);
     
-        $post->update($request->all());
+        $comment->update($request->all());
     
-        return redirect()->route('posts.index')
-                        ->with('success','Post updated successfully');
+        return redirect()->route('comments.index')
+                        ->with('success','Comment updated successfully');
     }
 
     /**
@@ -104,11 +96,11 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Post $post)
+    public function destroy(Comment $comment)
     {
-        $post->delete();
+        $comment->delete();
     
-        return redirect()->route('posts.index')
-                        ->with('success','Post deleted successfully');
+        return redirect()->route('comments.index')
+                        ->with('success','Comment deleted successfully');
     }
 }

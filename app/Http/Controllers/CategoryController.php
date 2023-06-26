@@ -2,13 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Post;
-use Illuminate\Http\RedirectResponse;
+use App\Models\Category;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
-use Illuminate\View\View;
 
-class PostController extends Controller
+class CategoryController extends Controller
 {
     public function __construct()
     {
@@ -21,9 +18,9 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::latest()->paginate(5);
+        $categories = Category::all();
         
-        return view('posts.index',compact('posts'))
+        return view('categories.index',compact('categories'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
@@ -34,7 +31,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('posts.create');
+        return view('categories.create');
     }
 
     /**
@@ -46,14 +43,15 @@ class PostController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title' => 'required',
-            'description' => 'required',
+            
+            'name' => 'required',
         ]);
     
-        Post::create($request->all());
+
+        Category::create($request->all());
      
-        return redirect()->route('posts.index')
-                        ->with('success','Post created successfully.');
+        return redirect()->route('categories.index')
+                        ->with('success','Category created successfully.');
     }
 
     /**
@@ -62,9 +60,9 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post)
+    public function show(Category $category)
     {
-        return view('posts.show',compact('post'));
+        return view('categoriess.show',compact('category'));
     }
 
     /**
@@ -73,9 +71,9 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Post $post)
+    public function edit(Category $category)
     {
-        return view('posts.edit',compact('post'));
+        return view('categories.edit',compact('category'));
     }
 
     /**
@@ -85,17 +83,16 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $post)
+    public function update(Request $request, Category $category)
     {
         $request->validate([
-            'title' => 'required',
-            'description' => 'required',
+            'category' => 'required',
         ]);
     
-        $post->update($request->all());
+        $category->update($request->all());
     
-        return redirect()->route('posts.index')
-                        ->with('success','Post updated successfully');
+        return redirect()->route('categories.index')
+                        ->with('success','category updated successfully');
     }
 
     /**
@@ -104,11 +101,11 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Post $post)
+    public function destroy(Category $category)
     {
-        $post->delete();
+        $category->delete();
     
-        return redirect()->route('posts.index')
-                        ->with('success','Post deleted successfully');
+        return redirect()->route('categories.index')
+                        ->with('success','Category deleted successfully');
     }
 }
