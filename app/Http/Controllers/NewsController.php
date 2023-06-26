@@ -23,7 +23,7 @@ class NewsController extends Controller
      */
     public function show(Post $post)
     {
-        //
+        return view('news.show',compact('post'));
     }
 
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use App\Models\Post;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -49,8 +50,12 @@ class PostController extends Controller
             'title' => 'required',
             'description' => 'required',
         ]);
-    
-        Post::create($request->all());
+
+        $post = new Post;
+        $post->title = $request->all()['title'];
+        $post->description = $request->all()['description'];
+        $post->user_id = Auth::user()->id;
+        $post->save();
      
         return redirect()->route('posts.index')
                         ->with('success','Post created successfully.');

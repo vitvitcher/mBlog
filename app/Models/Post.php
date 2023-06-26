@@ -15,6 +15,11 @@ class Post extends Model
      * @var array
      */
     protected $fillable = [
-        'title', 'description','image'
+        'title', 'description','user_id'
     ];
+
+    public function user()
+    {
+        return $this->belongsTo('App\Models\User');
+    }
 }
