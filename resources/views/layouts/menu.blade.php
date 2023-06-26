@@ -23,3 +23,9 @@
         <p>Categories</p>
     </a>
 </li>
+<li class="nav-item">
+    <a href="{{ route('news.index') }}" class="nav-link {{ Request::is('news') ? 'active' : '' }}">
+        <i class="nav-icon fas fa-newspaper"></i>
+        <p>News</p>
+    </a>
+</li>
