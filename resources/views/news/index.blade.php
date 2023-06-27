@@ -32,7 +32,7 @@
 
                         </div>
                     </a>
-                    <a href="./post.html" class="article featured-article featured-article-2">
+                    <a href="{{ route('news.show', $posts[0]->id) }}" class="article featured-article featured-article-2">
                         <img src="./assets/images/featured/featured-2.jpg" alt="" class="article-image">
                         <span class="article-category">Twitch</span>
 
@@ -46,7 +46,7 @@
                          <h3 class="title article-title">The future of the channel</h3>
                         </div>
                     </a>
-                    <a href="./post.html" class="article featured-article featured-article-3">
+                    <a href="{{ route('news.show', $posts[0]->id) }}" class="article featured-article featured-article-3">
                         <img src="./assets/images/featured/featured-3.jpg" alt="" class="article-image">
                         <span class="article-category">Twitch</span>
 

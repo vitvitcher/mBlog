@@ -20,10 +20,10 @@ Route::resource('news',NewsController::class);
 Route::resource('categories',CategoryController::class);
 Route::resource('comments',CommentController::class);
 Route::resource('posts',PostController::class);
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [App\Http\Controllers\NewsController::class, 'index'])->name('home');
 
 Auth::routes();

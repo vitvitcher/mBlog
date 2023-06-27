@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
+use App\Models\PostCategory;
 use Auth;
 use App\Models\Post;
 use Illuminate\Http\RedirectResponse;
@@ -35,7 +37,10 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('posts.create');
+        $categories=Category::all();
+        return view('posts.create',[
+            'categories' => $categories
+        ]);
     }
 
     /**
@@ -55,8 +60,16 @@ class PostController extends Controller
         $post->title = $request->all()['title'];
         $post->description = $request->all()['description'];
         $post->user_id = Auth::user()->id;
+        $post->show= array_key_exists('show',$request->all())? $request->all()['show']:0;
         $post->save();
-     
+
+        foreach($request->all()['category'] as $category){
+            $post_category=new PostCategory;
+            $post_category->post_id= $post->id;
+            $post_category->category_id=1*$category;
+            $post_category->save();
+        }
+        
         return redirect()->route('posts.index')
                         ->with('success','Post created successfully.');
     }
@@ -97,7 +110,11 @@ class PostController extends Controller
             'description' => 'required',
         ]);
     
-        $post->update($request->all());
+
+        $post->title = $request->all()['title'];
+        $post->description = $request->all()['description'];
+        $post->show= array_key_exists('show',$request->all())? $request->all()['show']:0;
+        $post->save();
     
         return redirect()->route('posts.index')
                         ->with('success','Post updated successfully');

@@ -3,7 +3,7 @@
 @section('content')
     <div class="card mt-5">
         <div class="card-header">
-            <h2>Laravel 10 CRUD Example from scratch - NiceSnippets.com</h2>
+            <h2>List of posts</h2>
         </div>
         <div class="card-body">
             <div class="row">
@@ -39,6 +39,20 @@
                             <div class="form-group">
                                 <strong>User:</strong>
                                 {{ $post->user->email }}
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="form-group">
+                                <strong>Show:</strong>
+                                {{ $post->show }}
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="form-group">
+                                <strong>Categories:</strong>
+                                @foreach($post->categories as $category)
+                                    {{ $category->name }}
+                                @endforeach
                             </div>
                         </div>
                     </div>

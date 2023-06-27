@@ -9,6 +9,7 @@
         <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/Duck.png">
         <link rel="stylesheet" href="{{asset('css/swiper-bundle.min.css')}}">
         <link rel="stylesheet" href="{{asset('css/main.css')}}">
+        <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     </head>
     <body>
 
@@ -206,7 +207,8 @@
             </div>
         </footer>
         <script src="{{URL::asset('js/swiper-bundle.min.js')}}"></script>
-        <script src="{{URL::asset('js/main.js')}}></script>
+        <script src="{{URL::asset('js/main.js')}}"></script>
+        <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     </body>
     <footer>
         

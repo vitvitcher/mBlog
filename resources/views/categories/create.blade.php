@@ -3,7 +3,7 @@
 @section('content')
 <div class="card mt-5">
         <div class="card-header">
-            <h2>Laravel 10 CRUD Example from scratch - NiceSnippets.com</h2>
+            <h2>Create category</h2>
         </div>
         <div class="card-body">
             <div class="row">

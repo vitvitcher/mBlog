@@ -3,7 +3,7 @@
 @section('content')
     <div class="card mt-5">
         <div class="card-header">
-            <h2>Laravel 10 CRUD Example from scratch - NiceSnippets.com</h2>
+            <h2>Edit post</h2>
         </div>
         <div class="card-body">
             <div class="row">
@@ -48,6 +48,11 @@
                                 <div class="form-group">
                                     <strong>Description:</strong>
                                     <textarea class="form-control" style="height:150px" name="description" placeholder="Description">{{ $post->description }}</textarea>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                <div class="form-group">
+                                    <p>Make public &nbsp; <input type="checkbox" name="show" class="" placeholder="Make Public" value="1" {{ $post->show? 'checked':''}}></p>
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
