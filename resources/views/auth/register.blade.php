@@ -15,7 +15,7 @@
 
                         <div class="input-group mb-3">
                             <input type="text" name="name"
-                                class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}"
+                                class="form-control @error('name') already-exists @enderror" value="{{ old('name') }}"
                                 placeholder="Full name">
                             <div class="input-group-append">
                                 <div class="input-group-text"><span class="fas fa-user"></span></div>
@@ -29,7 +29,7 @@
 
                         <div class="input-group mb-3">
                             <input type="email" name="email" value="{{ old('email') }}"
-                                class="form-control @error('email') is-invalid @enderror" placeholder="Email">
+                                class="form-control @error('email') already-exists @enderror" placeholder="Email">
                             <div class="input-group-append">
                                 <div class="input-group-text"><span class="fas fa-envelope"></span></div>
                             </div>

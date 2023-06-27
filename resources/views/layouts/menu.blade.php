@@ -29,3 +29,15 @@
         <p>Create category</p>
     </a>
 </li>
+<li class="nav-item">
+    <a href="{{ route('users.index') }}" class="nav-link {{ Request::is('users') ? 'active' : '' }}">
+        <i class="nav-icon fas fa-user"></i>
+        <p>Users</p>
+    </a>
+</li>
+<li class="nav-item">
+    <a href="{{ route('users.create') }}" class="nav-link {{ Request::is('users.create') ? 'active' : '' }}">
+        <i class="nav-icon fas fa-user-plus"></i>
+        <p>Create user</p>
+    </a>
+</li>

@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Category;
 use Illuminate\Http\Request;
+use App\Models\User;
 
-class CategoryController extends Controller
+class UserController extends Controller
 {
     public function __construct()
     {
@@ -18,9 +18,9 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::all();
+        $users = User::all();
         
-        return view('categories.index',compact('categories'))
+        return view('users.index',compact('users'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
@@ -31,7 +31,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('categories.create');
+        return view('users.create');
     }
 
     /**
@@ -44,14 +44,16 @@ class CategoryController extends Controller
     {
         $request->validate([
             
-            'name' => 'required',
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     
 
-        Category::create($request->all());
+        User::create($request->all());
      
-        return redirect()->route('categories.index')
-                        ->with('success','Category created successfully.');
+        return redirect()->route('users.index')
+                        ->with('success','User created successfully.');
     }
 
     /**
@@ -60,9 +62,9 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Category $category)
+    public function show(User $user)
     {
-        return view('categoriess.show',compact('category'));
+        return view('users.show',compact('user'));
     }
 
     /**
@@ -71,9 +73,9 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Category $category)
+    public function edit(User $user)
     {
-        return view('categories.edit',compact('category'));
+        return view('users.edit',compact('user'));
     }
 
     /**
@@ -83,16 +85,19 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    public function update(Request $request, User $user)
     {
         $request->validate([
-            'category' => 'required',
+            
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     
-        $category->update($request->all());
+        User::update($request->all());
     
-        return redirect()->route('categories.index')
-                        ->with('success','Category updated successfully');
+        return redirect()->route('users.index')
+                        ->with('success','User updated successfully');
     }
 
     /**
@@ -101,11 +106,11 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Category $category)
+    public function destroy(User $user)
     {
-        $category->delete();
+        $user->delete();
     
-        return redirect()->route('categories.index')
-                        ->with('success','Category deleted successfully');
+        return redirect()->route('users.index')
+                        ->with('success','User deleted successfully');
     }
 }

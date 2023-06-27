@@ -59,7 +59,7 @@
                             <div class="form-group">
                                 <strong>Categories:</strong>
                                 @foreach($post->photos as $photo)
-                                    <img src="{{Storage::url($photo->src)}}"> 
+                                    <img src="{{asset('storage/'.$photo->src)}}"> 
                                 @endforeach
                             </div>
                         </div>

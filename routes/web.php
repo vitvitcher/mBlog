@@ -1,11 +1,12 @@
 <?php
 
-use App\Http\Controllers\CategoryController;
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\NewsController;
-
+use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,6 +17,7 @@ use App\Http\Controllers\NewsController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::resource('users',UserController::class);
 Route::resource('news',NewsController::class);
 Route::resource('categories',CategoryController::class);
 Route::resource('comments',CommentController::class);
