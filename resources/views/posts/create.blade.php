@@ -33,7 +33,7 @@
                         </div>
                     @endif
                        
-                    <form action="{{ route('posts.store') }}" method="POST">
+                    <form action="{{ route('posts.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                       
                          <div class="row">
@@ -60,6 +60,19 @@
                                     @foreach($categories as $category)
                                     <input type="checkbox" name="category[]" class="" placeholder="Category" value="{{$category->id}}" >{{$category->name}} &nbsp;
                                     @endforeach
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                <div class="form-group">
+                                <input 
+                                    type="file" 
+                                    name="file" 
+                                    id="inputFile"
+                                    class="form-control @error('file') is-invalid @enderror">
+                
+                                @error('file')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12 text-center">

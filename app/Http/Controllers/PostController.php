@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Photo;
 use App\Models\PostCategory;
+use App\Models\PostPhoto;
 use Auth;
 use App\Models\Post;
 use Illuminate\Http\RedirectResponse;
@@ -69,6 +71,22 @@ class PostController extends Controller
             $post_category->category_id=1*$category;
             $post_category->save();
         }
+
+
+        $path = $request->file('file')->store('images');
+        $image=new Photo;
+        $image->title=$request->file('file')->getFilename();
+        $image->src=$path;
+        $image->main=1;
+        $image->save();
+
+
+        $post_image=new PostPhoto;
+        $post_image->post_id= $post->id;
+        $post_image->photo_id=$image->id;
+        $post_image->save();
+        
+
         
         return redirect()->route('posts.index')
                         ->with('success','Post created successfully.');

@@ -33,4 +33,8 @@ class Post extends Model
         return $rez;*/
         return $this->belongsToMany('App\Models\Category', 'post_categories');
     }
+    public function photos()
+    {
+        return $this->belongsToMany('App\Models\Photo', 'post_photos');
+    }
 }

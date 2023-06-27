@@ -31,8 +31,8 @@
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
-                                <strong>Description:</strong>
-                                {{ $post->description }}
+                                <strong>Description:</strong><br/>
+                                {!! $post->description !!}
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12">
@@ -52,6 +52,14 @@
                                 <strong>Categories:</strong>
                                 @foreach($post->categories as $category)
                                     {{ $category->name }}
+                                @endforeach
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="form-group">
+                                <strong>Categories:</strong>
+                                @foreach($post->photos as $photo)
+                                    <img src="{{Storage::url($photo->src)}}"> 
                                 @endforeach
                             </div>
                         </div>
