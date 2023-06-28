@@ -64,11 +64,7 @@
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
-                                <input 
-                                    type="file" 
-                                    name="file" 
-                                    id="inputFile"
-                                    class="form-control @error('file') is-invalid @enderror">
+                                <input type="file" name="file" id="inputFile" class="form-control @error('file') is-invalid @enderror">
                 
                                 @error('file')
                                     <span class="text-danger">{{ $message }}</span>

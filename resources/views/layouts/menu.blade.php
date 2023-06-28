@@ -24,7 +24,7 @@
     </a>
 </li>
 <li class="nav-item">
-    <a href="{{ route('categories.create') }}" class="nav-link {{ Request::is('categories.create') ? 'active' : '' }}">
+    <a href="{{ route('categories.create') }}" class="nav-link {{ Request::is('categories/create') ? 'active' : '' }}">
         <i class="nav-icon fas fa-folder-plus"></i>
         <p>Create category</p>
     </a>
@@ -36,7 +36,7 @@
     </a>
 </li>
 <li class="nav-item">
-    <a href="{{ route('users.create') }}" class="nav-link {{ Request::is('users.create') ? 'active' : '' }}">
+    <a href="{{ route('users.create') }}" class="nav-link {{ Request::is('users/create') ? 'active' : '' }}">
         <i class="nav-icon fas fa-user-plus"></i>
         <p>Create user</p>
     </a>

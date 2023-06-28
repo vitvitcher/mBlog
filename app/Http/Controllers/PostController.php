@@ -56,6 +56,8 @@ class PostController extends Controller
         $request->validate([
             'title' => 'required',
             'description' => 'required',
+            'category' => 'required',
+            'file' => 'required',
         ]);
 
         $post = new Post;
@@ -73,10 +75,10 @@ class PostController extends Controller
         }
 
 
-        $path = $request->file('file')->store('images');
+        $path = $request->file('file')->store('public/images');
         $image=new Photo;
         $image->title=$request->file('file')->getFilename();
-        $image->src=$path;
+        $image->src=str_replace('public','',$path);
         $image->main=1;
         $image->save();
 
