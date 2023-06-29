@@ -2,6 +2,7 @@
 
 @section('content')
 
+        
 
         <!--Featured articles-->
         <section class="featured-articles section-header-offset">
@@ -17,18 +18,16 @@
                         <span class="headline-description">vitvitcher_the_duck got a new follower</span>
                     </div>
 
-                    <a href="{{ route('news.show', $posts[0]->id) }}" class="article featured-article featured-article-1">
-                        <img src="./assets/images/featured/featured-1.jpg" alt="" class="article-image">
+                    <a href="{{ route('news.show',$posts[0]->id) }}" class="article featured-article featured-article-1">
+                        <img src="{{asset('storage/'.$posts[0]->photos[0]->src)}}" alt="" class="article-image">
                         <span class="article-category">Twitch</span>
                         
                         <div class="article-data-container">
                            
                             <div class="article-data">
-                                <span>24th of September</span>
-                                <span class="article-data-spacer"></span>
-                                <span>placeholdertext</span>
+                                <span>{{$posts[0]->updated_at}}</span>
                             </div>
-                            <h3 class="title article-title">The future of the channel</h3>
+                            <h3 class="title article-title">{{$posts[0]->title}}</h3>
 
                         </div>
                     </a>

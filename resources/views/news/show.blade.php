@@ -6,7 +6,7 @@
         <div class="blog-post-container container">
 
             <div class="blog-post-data">
-                <h3 class="title blog-post-title">What</h3>
+                <h3 class="title blog-post-title">{{ $post->title }}</h3>
                 <div class="article-data">
                     <span>Do you remember</span>
                     <span class="article-data-spacer"></span>
