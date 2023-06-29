@@ -18,7 +18,7 @@ use App\Http\Controllers\UserController;
 |
 */
 Route::resource('users',UserController::class);
-Route::resource('news',NewsController::class);
+// Route::resource('news',NewsController::class);
 Route::resource('categories',CategoryController::class);
 Route::resource('comments',CommentController::class);
 Route::resource('posts',PostController::class);
@@ -27,5 +27,6 @@ Route::resource('posts',PostController::class);
 // });
 
 Route::get('/', [App\Http\Controllers\NewsController::class, 'index'])->name('home');
+Route::get('/news/{id}', [App\Http\Controllers\NewsController::class, 'show'])->name('news.show');
 
 Auth::routes();

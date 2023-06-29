@@ -21,8 +21,10 @@ class NewsController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Post $post)
+    public function show($id)
     {
+        $post=Post::where('id',$id)
+                    ->first();
         return view('news.show',compact('post'));
     }
 
