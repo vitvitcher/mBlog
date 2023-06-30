@@ -25,8 +25,7 @@
                     <table class="table table-bordered">
                         <tr>
                             <th>No</th>
-                            <th>Title</th>
-                            <th>Description</th>
+                            <th>Name</th>
                             <th width="280px">Action</th>
                         </tr>
                         @foreach ($categories as $category)

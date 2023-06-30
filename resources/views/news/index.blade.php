@@ -391,25 +391,4 @@
                 </div>
             </div>
         </section>
-
-        <!--Newsletter-->
-        <section class="newsletter section">
-            <div class="container">
-                <h2 class="title section-title" data-name="Newsletter">Newsletter</h2>
-
-                <div class="form-container-inner">
-
-                    <h6 class="title newsletter-title">Follow vitvitcher_the_duck</h6>
-                    <p class="newsletter-description">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-
-                    <form action="" class="form">
-                        <input type="text" class="form-input" placeholder="Enter your email adress">
-                        <button class="btn form-btn" type="submit">
-                            <i class="ri-mail-send-line"></i>
-                        </button>
-                    </form>
-
-                </div>
-            </div>
-        </section>
 @endsection

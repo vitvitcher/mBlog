@@ -41,3 +41,15 @@
         <p>Create user</p>
     </a>
 </li>
+<li class="nav-item">
+    <a href="{{ route('comments.index') }}" class="nav-link {{ Request::is('comments') ? 'active' : '' }}">
+        <i class="nav-icon fas fa-comment"></i>
+        <p>Comments</p>
+    </a>
+</li>
+<li class="nav-item">
+    <a href="{{ route('comments.create') }}" class="nav-link {{ Request::is('comments/create') ? 'active' : '' }}">
+        <i class="nav-icon fas fa-comment-medical"></i>
+        <p>Create comment</p>
+    </a>
+</li>

@@ -25,15 +25,15 @@
                     <table class="table table-bordered">
                         <tr>
                             <th>No</th>
-                            <th>Title</th>
-                            <th>Description</th>
+                            <th>User Id</th>
+                            <th>Comment</th>
                             <th width="280px">Action</th>
                         </tr>
                         @foreach ($comments as $comment)
                         <tr>
                             <td>{{ ++$i }}</td>
                             <td>{{ $comment->user_id }}</td>
-                            <td>{{ \Str::limit($comment->coment, 50) }}</td>
+                            <td>{{ \Str::limit($comment->comment, 50) }}</td>
                             <td>
                                 <form action="{{ route('comments.destroy',$comment->id) }}" method="POST">
                    

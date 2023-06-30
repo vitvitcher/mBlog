@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Comment;
 use Illuminate\Http\Request;
+use App\Models\PostComment;
+use Auth;
 
 class CommentController extends Controller
 {
@@ -42,10 +44,20 @@ class CommentController extends Controller
             
             'comment' => 'required',
         ]);
-    
-        Comment::create($request->all());
+        $comment = new Comment;
+        $comment->comment=$request->all()['comment'];
+        //$comment->user_id =Auth::user()->id? Auth::user()->id:0;
+        $comment->user_id =Auth::user()->id;
+        $comment->isUpdated=0;
+        $comment->hide= array_key_exists('hide',$request->all())? $request->all()['hide']:0;
+        $comment->save();
      
-        return redirect()->route('comments.index')
+
+        $post_comment=new PostComment;
+        $post_comment->post_id= 27;
+        $post_comment->comment_id=$comment->id;
+        $post_comment->save();
+        return redirect()->route('news.show', 27)
                         ->with('success','Comment created successfully.');
     }
 
