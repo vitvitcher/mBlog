@@ -600,7 +600,6 @@ z-index: 10;
     border: 5px solid var(--transparent-dark-color);
     width: 10rem;
     height: 10rem;
-    padding-right: .5rem;
     object-fit:fill;
 }
 

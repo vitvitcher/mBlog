@@ -20,7 +20,7 @@
                 <form action="{{ route('comments.store') }}" method="POST" class="form make-comment-form">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <input type="hidden" name="post_id" value="{{ $post->id }}">
-                    <img src="./assets/images/Duck.png" alt="" class="make-comment-image">
+                    <img src="{{asset('storage/user_images/default.png')}}" alt="" class="make-comment-image">
                     <textarea class="form-control comment-box" rows="3" name="comment" placeholder="Your original comment"></textarea>
                         <button class="btn form-btn" type="submit">
                             <i class="ri-mail-send-line"></i>
@@ -31,7 +31,7 @@
             <div class="comments d-grid">
             @foreach ($post->comments as $comment)
                 <div class="comments-box d-grid">
-                    <img src="./assets/images/Duck.png" alt="" class="comment-image">
+                    <img src="{{asset('storage/user_images/default.png')}}" alt="" class="comment-image">
                     <div class="comment-body">
                         <h5 class="comment-nickname">{{$comment->user->name}}</h5>
                         <p class="comment">{{$comment->comment}}</p></br>
