@@ -28,22 +28,17 @@
                 </form>
             </div>
             <h3 class="comments-title">Comments</h3>
-            
             <div class="comments d-grid">
+            @foreach ($post->comments as $comment)
                 <div class="comments-box d-grid">
                     <img src="./assets/images/Duck.png" alt="" class="comment-image">
                     <div class="comment-body">
-                        <h5 class="comment-nickname">Duck</h5>
-                        <p class="comment"><!--comment--></p>
+                        <h5 class="comment-nickname">{{$comment->user->name}}</h5>
+                        <p class="comment">{{$comment->comment}}</p></br>
+                        <p class="comment-edited" {{ $comment->isUpdated?'':'hidden' }}> edited</p>
                     </div>
                 </div>
-                <div class="comments-box d-grid">
-                    <img src="./assets/images/Duck.png" alt="" class="comment-image">
-                    <div class="comment-body">
-                        <h5 class="comment-nickname">Duck</h5>
-                        <p class="comment">Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis, officia nemo? Ullam libero deleniti dolore, laudantium non dolorem, vitae fugit facere, illum nobis ab blanditiis repellat voluptatem saepe perferendis cumque.</p>
-                    </div>
-                </div>
+            @endforeach
             </div>
         </div>
     </section>

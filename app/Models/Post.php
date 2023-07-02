@@ -37,4 +37,8 @@ class Post extends Model
     {
         return $this->belongsToMany('App\Models\Photo', 'post_photos');
     }
+    public function comments()
+    {
+        return $this->belongsToMany('App\Models\Comment', 'post_comments')->where('hide', 0);
+    }
 }

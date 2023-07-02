@@ -17,4 +17,7 @@ class Comment extends Model
     protected $fillable = [
         'comment', 'isUpdated','hide','user_id'
     ];
+    public function user(){
+        return $this->belongsTo('App\Models\User');
+    }
 }

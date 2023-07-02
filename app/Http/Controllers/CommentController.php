@@ -9,6 +9,8 @@ use Auth;
 
 class CommentController extends Controller
 {
+
+
    /**
      * Display a listing of the resource.
      *
@@ -51,7 +53,7 @@ class CommentController extends Controller
         //$comment->user_id =Auth::user()->id? Auth::user()->id:0;
         $comment->user_id= array_key_exists('user_id',$request->all())? $request->all()['user_id']:Auth::user()->id;
         //$comment->user_id =Auth::user()->id;
-        $comment->isUpdated= $request->all()['is_updated'];
+        $comment->isUpdated= array_key_exists('is_updated',$request->all())? $request->all()['is_updated']:0;
         $comment->hide= array_key_exists('hide',$request->all())? $request->all()['hide']:0;
         $comment->save();
      
