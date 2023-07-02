@@ -45,7 +45,7 @@ class CommentController extends Controller
             
             'comment' => 'required',
         ]);
-        
+
         $comment = new Comment;
         $comment->comment=$request->all()['comment'];
         //$comment->user_id =Auth::user()->id? Auth::user()->id:0;
@@ -99,7 +99,10 @@ class CommentController extends Controller
             'comment' => 'required',
         ]);
     
-        $comment->update($request->all());
+        $comment->comment=$request->all()['comment'];
+        $comment->isUpdated= $request->all()['is_updated'];
+        $comment->hide= array_key_exists('hide',$request->all())? $request->all()['hide']:0;
+        $comment->save();
     
         return redirect()->route('comments.index')
                         ->with('success','Comment updated successfully');
