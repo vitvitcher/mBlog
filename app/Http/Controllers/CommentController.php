@@ -40,21 +40,24 @@ class CommentController extends Controller
      */
     public function store(Request $request)
     {
+        
         $request->validate([
             
             'comment' => 'required',
         ]);
+        
         $comment = new Comment;
         $comment->comment=$request->all()['comment'];
         //$comment->user_id =Auth::user()->id? Auth::user()->id:0;
-        $comment->user_id =Auth::user()->id;
-        $comment->isUpdated=0;
+        $comment->user_id= array_key_exists('user_id',$request->all())? $request->all()['user_id']:Auth::user()->id;
+        //$comment->user_id =Auth::user()->id;
+        $comment->isUpdated= $request->all()['is_updated'];
         $comment->hide= array_key_exists('hide',$request->all())? $request->all()['hide']:0;
         $comment->save();
      
 
         $post_comment=new PostComment;
-        $post_comment->post_id= 27;
+        $post_comment->post_id= $request->all()['post_id'];
         $post_comment->comment_id=$comment->id;
         $post_comment->save();
         return redirect()->route('news.show', 27)

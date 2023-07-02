@@ -35,12 +35,29 @@
                        
                     <form action="{{ route('comments.store') }}" method="POST">
                         @csrf
-                      
+                        <input type="hidden" name="is_updated" value="0">
                          <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                <div class="form-group">
+                                    <strong>User Id:</strong>
+                                    <textarea class="form-control" rows="1" name="user_id" placeholder="Id of the user"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                <div class="form-group">
+                                    <strong>Post Id:</strong>
+                                    <textarea class="form-control" rows="1" name="post_id" placeholder="Id of the post"></textarea>
+                                </div>
+                            </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>Comment:</strong>
                                     <textarea class="form-control" rows="6" name="comment" placeholder="Your original comment"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                <div class="form-group">
+                                    <p>Hide &nbsp; <input type="checkbox" name="hide" class="" placeholder="Hide Comment" value="1"></p>
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12 text-center">

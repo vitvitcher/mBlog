@@ -36,12 +36,29 @@
                     <form action="{{ route('comments.update',$comment->id) }}" method="POST">
                         @csrf
                         @method('PUT')
-                   
+                        <input type="hidden" name="is_updated" value="1">
                          <div class="row">
+                         <div class="col-xs-12 col-sm-12 col-md-12">
+                                <div class="form-group">
+                                    <strong>User Id:</strong>
+                                    <textarea class="form-control" rows="1" name="user_id" placeholder="Id of the user">{{$comment->user_id}}</textarea>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                <div class="form-group">
+                                    <strong>Post Id:</strong>
+                                    <input type="number" name="post_id">
+                                </div>
+                            </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>Comment:</strong>
                                     <textarea class="form-control" style="height:150px" name="comment" placeholder="Comment">{{ $comment->comment }}</textarea>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                <div class="form-group">
+                                    <p>Hide &nbsp; <input type="checkbox" name="hide" class="" placeholder="Hide Comment" value="1" {{ $comment->hide? 'checked':''}}></p>
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12 text-center">

@@ -577,11 +577,18 @@ z-index: 10;
 .make-comment-image{
     border: 5px solid var(--transparent-dark-color);
     border-top: 0;
+    width: 10rem;
+    height: 10rem;
 }
 
 .make-comment-form{
     width: 100%;
 }
+.comment-box{
+    width: 70em;
+    height: 5em; 
+    resize: none;
+}   
 .comments{
  
 }

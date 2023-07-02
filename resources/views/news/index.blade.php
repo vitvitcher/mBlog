@@ -31,21 +31,19 @@
 
                         </div>
                     </a>
-                    <a href="{{ route('news.show', $posts[0]->id) }}" class="article featured-article featured-article-2">
-                        <img src="./assets/images/featured/featured-2.jpg" alt="" class="article-image">
+                    <a href="{{ route('news.show', $posts[1]->id) }}" class="article featured-article featured-article-2">
+                        <img src="{{asset('storage/'.$posts[1]->photos[0]->src)}}" alt="" class="article-image">
                         <span class="article-category">Twitch</span>
 
                         <div class="article-data-container">
 
                             <div class="article-data">
-                                <span>24th of September</span>
-                                <span class="article-data-spacer"></span>
-                                <span>placeholdertext</span>
+                                <span>{{$posts[1]->updated_at}}</span>
                             </div>
-                         <h3 class="title article-title">The future of the channel</h3>
+                         <h3 class="title article-title">{{$posts[1]->title}}</h3>
                         </div>
                     </a>
-                    <a href="{{ route('news.show', $posts[0]->id) }}" class="article featured-article featured-article-3">
+                    <a href="{{ route('news.show', $posts[1]->id) }}" class="article featured-article featured-article-3">
                         <img src="./assets/images/featured/featured-3.jpg" alt="" class="article-image">
                         <span class="article-category">Twitch</span>
 

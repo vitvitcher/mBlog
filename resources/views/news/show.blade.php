@@ -18,11 +18,13 @@
         <div class="container comments-container">
             <div class="make-comment">
                 <form action="{{ route('comments.store') }}" method="POST" class="form make-comment-form">
-                <img src="./assets/images/Duck.png" alt="" class="make-comment-image">
-                <textarea  style="width: 70em; height: 5em;resize:none;" class="form-control" rows="3" name="comment" placeholder="Your original comment"></textarea>
-                    <button class="btn form-btn" type="submit">
-                        <i class="ri-mail-send-line"></i>
-                    </button>
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                    <input type="hidden" name="post_id" value="{{ $post->id }}">
+                    <img src="./assets/images/Duck.png" alt="" class="make-comment-image">
+                    <textarea class="form-control comment-box" rows="3" name="comment" placeholder="Your original comment"></textarea>
+                        <button class="btn form-btn" type="submit">
+                            <i class="ri-mail-send-line"></i>
+                        </button>
                 </form>
             </div>
             <h3 class="comments-title">Comments</h3>
