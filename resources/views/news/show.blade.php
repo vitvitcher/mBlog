@@ -8,7 +8,7 @@
             <div class="blog-post-data">
                 <h3 class="title blog-post-title">{{ $post->title }}</h3>
             <div class="container">
-               {{$post->description}}
+               {!! $post->description !!}
             </div>
         </div>
     </section>

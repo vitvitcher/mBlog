@@ -1,5 +1,5 @@
 <x-laravel-ui-adminlte::adminlte-layout>
-
+    <link rel="stylesheet" href="{{asset('css/dragger.css')}}">
     <body class="hold-transition sidebar-mini layout-fixed">
         <div class="wrapper">
             <!-- Main Header -->
@@ -63,4 +63,5 @@
             </footer>
         </div>
     </body>
+    <script src="{{URL::asset('js/dragger.js')}}"></script>
 </x-laravel-ui-adminlte::adminlte-layout>

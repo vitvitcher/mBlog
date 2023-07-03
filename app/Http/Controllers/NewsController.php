@@ -13,7 +13,7 @@ class NewsController extends Controller
      */
     public function index()
     {
-        $posts = Post::latest()->get();
+        $posts = Post::latest()->where('show',1)->get();
         $categories = Category::get();
         return view('news.index',['posts'=>$posts,'categories'=>$categories]);
     }

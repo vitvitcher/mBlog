@@ -16,7 +16,7 @@
         <!--Navbar-->
         <header class="header" id="header">
             <nav class="navbar container">
-                <a href="./index.html">
+                <a href="/">
                     <h2 class="logo">Duck Pond</h2>
                 </a>
             <div class="menu" id="menu">

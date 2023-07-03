@@ -65,7 +65,7 @@
                     <a href="{{ route('news.show', $posts[$i]->id) }}" class="trending-news-box">
                         <div class="trending-news-image-box">
                             <span class="trending-number place-items-center">0{{$i-2}}</span>
-                                <img src="" alt="" class="article-image">
+                                <img src="{{asset('storage/'.$posts[$i]->photos[0]->src)}}" alt="" class="article-image">
 
                         </div>
                         <div class="trending-news-data">
@@ -90,8 +90,8 @@
                 <div class="swiper">
                     <div class="swiper-wrapper">
                     @for($i=8;$i< 14 ;$i++)
-                        <a href="#" class="article swiper-slide">
-                            <img src="{{asset('storage/'.$posts[2]->photos[0]->src)}}" alt="" class="article-image">
+                        <a href="{{ route('news.show', $posts[$i]->id) }}" class="article swiper-slide">
+                            <img src="{{asset('storage/'.$posts[$i]->photos[0]->src)}}" alt="" class="article-image">
 
                             <div class="article-data-container">
 
@@ -120,9 +120,9 @@
                 <h2 class="title section-title" data-name="Older posts">Older posts</h2>
                 <div class="older-posts-grid-wrapper d-grid">
                 @for($i=14;$i < 20;$i++)
-                    <a href="#" class="article d-grid">
+                    <a href="{{ route('news.show', $posts[$i]->id) }}" class="article d-grid">
                         <div class="older-posts-article-image-wrapper">
-                            <img src="" alt="" class="article-image">
+                            <img src="{{asset('storage/'.$posts[$i]->photos[0]->src)}}" alt="" class="article-image">
                         </div>
                         <div class="article-data-container">
                             <div class="article-data">
@@ -142,7 +142,7 @@
             <div class="container">
                 <h2 class="title section-title" data-name="Popular tags">Popular tags</h2>
                 <div class="popular-tags-container d-grid">
-                @for($i=0;$i < 3;$i++)
+                @for($i=0;$i < 6;$i++)
                     <a href="#" class="article">
                         <span class="tag-name">#{{$categories[$i]->name}}</span>
                     </a>

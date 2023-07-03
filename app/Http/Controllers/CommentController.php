@@ -57,12 +57,13 @@ class CommentController extends Controller
         $comment->hide= array_key_exists('hide',$request->all())? $request->all()['hide']:0;
         $comment->save();
      
+        $post_id= $request->all()['post_id'];
 
         $post_comment=new PostComment;
-        $post_comment->post_id= $request->all()['post_id'];
+        $post_comment->post_id= $post_id;
         $post_comment->comment_id=$comment->id;
         $post_comment->save();
-        return redirect()->route('news.show', 27)
+        return redirect()->route('news.show', $post_id)
                         ->with('success','Comment created successfully.');
     }
 
