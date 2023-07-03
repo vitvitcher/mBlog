@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Post;
+use App\Models\Category;
 use App\Models\News;
 use Illuminate\Http\Request;
 
@@ -12,10 +13,9 @@ class NewsController extends Controller
      */
     public function index()
     {
-        $posts = Post::latest()->paginate(5);
-
-        return view('news.index',compact('posts'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
+        $posts = Post::latest()->get();
+        $categories = Category::get();
+        return view('news.index',['posts'=>$posts,'categories'=>$categories]);
     }
 
     /**

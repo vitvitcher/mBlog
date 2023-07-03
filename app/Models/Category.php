@@ -18,4 +18,8 @@ class Category extends Model
     protected $fillable = [
         'name'
     ];
+
+    public function get_categories(){
+        return $this;
+    }
 }
