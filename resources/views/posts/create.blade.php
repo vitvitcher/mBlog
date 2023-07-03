@@ -62,6 +62,19 @@
                                     @endforeach
                                 </div>
                             </div>
+
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                <div class="form-group">
+                                    <div id="dragger_wrapper">
+                                        <div id="dragger">
+                                            <h2 id="drag-text">Drag and Drop File</h2>
+                                            <h3>Or</h3> <button class="browseFile" id="browseFile">Browse File</button> <input type="file" hidden id="fileInputField" />
+                                        </div>
+                                        <div id="fileName"> </div>
+                                    </div>
+                                </div>
+                            </div>
+
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                 <input type="file" name="file" id="inputFile" class="form-control @error('file') is-invalid @enderror">

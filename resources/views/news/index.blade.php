@@ -59,80 +59,23 @@
 
                 <!--Sidebar-->
                 <div class="sidebar d-grid">
-
-                    <h3 class="title featured-content-title">Trending News</h3>
-                    <a href="#" class="trending-news-box">
+                <h3 class="title featured-content-title">Trending News</h3>
+                @for($i=3;$i< 8 ;$i++)
+                    
+                    <a href="{{ route('news.show', $posts[$i]->id) }}" class="trending-news-box">
                         <div class="trending-news-image-box">
-                            <span class="trending-number place-items-center">01</span>
-                                <img src="./assets/images/trending/trending_1.jpg" alt="" class="article-image">
+                            <span class="trending-number place-items-center">0{{$i-2}}</span>
+                                <img src="" alt="" class="article-image">
 
                         </div>
                         <div class="trending-news-data">
                             <div class="article-data">
-                                <span>24th of September</span>
-                                <span class="article-data-spacer"></span>
-                                <span>placeholdertext</span>
+                                <span>{{$posts[$i]->updated_at}}</span>
                             </div>
-                            <h3 class="title article-title">Sample article title</h3>
+                            <h3 class="title article-title">{{$posts[$i]->title}}</h3>
                         </div>
                     </a>
-                    <a href="#" class="trending-news-box">
-                        <div class="trending-news-image-box">
-                            <span class="trending-number place-items-center">01</span>
-                                <img src="./assets/images/trending/trending_2.jpg" alt="" class="article-image">
-
-                        </div>
-                        <div class="trending-news-data">
-                            <div class="article-data">
-                                <span>24th of September</span>
-                                <span class="article-data-spacer"></span>
-                                <span>placeholdertext</span>
-                            </div>
-                            <h3 class="title article-title">Sample article title</h3>
-                        </div>
-                    </a><a href="#" class="trending-news-box">
-                        <div class="trending-news-image-box">
-                            <span class="trending-number place-items-center">01</span>
-                                <img src="./assets/images/trending/trending_3.jpg" alt="" class="article-image">
-
-                        </div>
-                        <div class="trending-news-data">
-                            <div class="article-data">
-                                <span>24th of September</span>
-                                <span class="article-data-spacer"></span>
-                                <span>placeholdertext</span>
-                            </div>
-                            <h3 class="title article-title">Sample article title</h3>
-                        </div>
-                    </a><a href="#" class="trending-news-box">
-                        <div class="trending-news-image-box">
-                            <span class="trending-number place-items-center">01</span>
-                                <img src="./assets/images/trending/trending_4.jpg" alt="" class="article-image">
-
-                        </div>
-                        <div class="trending-news-data">
-                            <div class="article-data">
-                                <span>24th of September</span>
-                                <span class="article-data-spacer"></span>
-                                <span>placeholdertext</span>
-                            </div>
-                            <h3 class="title article-title">Sample article title</h3>
-                        </div>
-                    </a><a href="#" class="trending-news-box">
-                        <div class="trending-news-image-box">
-                            <span class="trending-number place-items-center">01</span>
-                                <img src="./assets/images/trending/trending_5.jpg" alt="" class="article-image">
-
-                        </div>
-                        <div class="trending-news-data">
-                            <div class="article-data">
-                                <span>24th of September</span>
-                                <span class="article-data-spacer"></span>
-                                <span>placeholdertext</span>
-                            </div>
-                            <h3 class="title article-title">Sample article title</h3>
-                        </div>
-                    </a>
+                @endfor
                 </div>
             </div>
         </section>
@@ -146,7 +89,7 @@
 
                 <div class="swiper">
                     <div class="swiper-wrapper">
-                    @for($i=3;$i< 9 ;$i++)
+                    @for($i=8;$i< 14 ;$i++)
                         <a href="#" class="article swiper-slide">
                             <img src="{{asset('storage/'.$posts[2]->photos[0]->src)}}" alt="" class="article-image">
 
@@ -176,7 +119,7 @@
 
                 <h2 class="title section-title" data-name="Older posts">Older posts</h2>
                 <div class="older-posts-grid-wrapper d-grid">
-                @for($i=9;$i < 15;$i++)
+                @for($i=14;$i < 20;$i++)
                     <a href="#" class="article d-grid">
                         <div class="older-posts-article-image-wrapper">
                             <img src="" alt="" class="article-image">
