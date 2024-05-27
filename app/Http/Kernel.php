@@ -6,6 +6,10 @@ use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
 {
+    protected $routeMiddleware = [
+        '2fa' => \PragmaRX\Google2FALaravel\Middleware::class,
+    ];
+
     /**
      * The application's global HTTP middleware stack.
      *
